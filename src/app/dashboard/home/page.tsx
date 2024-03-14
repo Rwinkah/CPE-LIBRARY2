@@ -1,11 +1,7 @@
-import DashboardLayout from "../dashboardLayout"
+import DashHome from "./client";
 
-export default function DashHome() {
+export default function HomePage() {
     return (
-        <>
-            <DashboardLayout>
-                <h1 className="font-bold text-4xl">Overview</h1>
-            </DashboardLayout>
-        </>
+        <DashHome />
     )
 }

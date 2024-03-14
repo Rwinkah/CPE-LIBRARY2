@@ -16,7 +16,7 @@ export default function Sidebar() {
     const [open, setOpen] = useState(false)
 
   return (
-      <div className="w-[198px] h-[100VH] bg-black">
+      <div className="w-[14%] h-[100VH] bg-black">
         <div id="Dashboardlogo" className="">
             <div id='logo' className="flex mt-[26px] ml-[29px]">
                 <Image className="" src={book} alt="logo" />
@@ -41,6 +41,13 @@ export default function Sidebar() {
                     <BellIcon width="20" height="20"/>
                   </div>
                   Notifications
+              </Button>
+              <Button
+                  className='mt-[170%] pl-2 justify-start flex gap-[12px] flex-wrap rounded-3xl w-[158px] h-[40px]  bg-[] text-white'>
+                  <div>
+                    <BellIcon width="20" height="20"/>
+                  </div>
+                  Log out
               </Button>
 
           </div>
