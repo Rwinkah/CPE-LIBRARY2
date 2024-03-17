@@ -17,7 +17,7 @@ export default function DashHome() {
     const [noteActive, setNoteActive] = useState(false)
     return (
         <>
-            <DashboardLayout>
+            <DashboardLayout activePage="home">
                 <div className="pl-[56px] ">
                     <h1 className="font-bold text-4xl">Overview</h1>
                     <div className="flex mt-[24px]">

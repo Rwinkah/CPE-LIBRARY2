@@ -1,14 +1,20 @@
 import Sidebar from "@/components/ui/sidebar";
+import React from "react";
+import { string } from "zod";
 
-export default function DashboardLayout( {children,
-}: {
-  children: React.ReactNode;
-}) {
+interface dashlayProp  {
+    children: React.ReactNode,
+    activePage: string;
+
+}
+
+export default function DashboardLayout( {children, activePage
+}: dashlayProp) {
     return (
         <div id="dashboard-body" className="flex  w-[100%] ">
-                <Sidebar />
+                <Sidebar activePage={activePage} />
             <div id="shit" className="h-[100%] ]">
-                <div id="dashboard-top" className="h-[75px]">topp</div>
+                <div id="dashboard-top" className="h-[120px]">topp</div>
                 {children}
             </div>
 

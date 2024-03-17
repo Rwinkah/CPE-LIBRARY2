@@ -229,7 +229,7 @@ export function SignupForm() {
                                         {firstS.map((value, index) => (
                                             <Button
                                                 key={index}
-                                                className="flex gap-2 rounded-none h-[30px] text-[14px] font-medium w-[7.45rem] flex space-evenly text-[#820B8A] [border px-1.5 py-1 bg-[#ECDBEE]"
+                                                className=" gap-2 rounded-none h-[30px] text-[14px] font-medium w-[7.45rem] flex space-evenly text-[#820B8A] [border px-1.5 py-1 bg-[#ECDBEE]"
 
                                             >   
                                                 {value} <Image
@@ -267,7 +267,7 @@ export function SignupForm() {
                                         {secondS.map((value, index) => (
                                             <Button
                                                 key={index}
-                                                className="flex gap-2 rounded-none h-[30px] text-[14px] font-medium w-[7.45rem] flex space-evenly text-[#820B8A] [border px-1.5 py-1 bg-[#ECDBEE]"
+                                                className=" gap-2 rounded-none h-[30px] text-[14px] font-medium w-[7.45rem] flex space-evenly text-[#820B8A] [border px-1.5 py-1 bg-[#ECDBEE]"
                                                 >
                                                 {value}
                                                 <Image
