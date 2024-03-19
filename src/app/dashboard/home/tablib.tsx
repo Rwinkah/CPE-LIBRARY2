@@ -14,7 +14,7 @@ export default function TabLib() {
             <Label className="font-medium text-[#807E7E] text-xl ">Find all your offline downloads here:</Label>
             <div className="overflow-y-auto h-[30rem] pt-8">
                 {CourseData.map(item => (
-                    <Accordion type="single" collapsible>
+                    <Accordion type="single" collapsible key={item.title + item.desc}>
                         <AccordionItem
                             value={item.title}
                             key={item.title}
