@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Sidebar from "./_components/sidebar";
+import Footer from "./_components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
     title: { default: "CPE-E-Library", template: "%s | CPE-E-Library" },
     description:
       "A digital library for CPE students to access course materials, notes, and more.",
-    creator: "ReroDevs",
+    creator: "RetroDevs",
     images: [
       "https://www.pexels.com/photo/grayscale-photo-of-bicycle-beside-seashore-103523/",
     ], // Must be an absolute URL
@@ -44,7 +43,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <main className="flex">
+          <aside className="fixed top-0 bottom-0 w-[200px]">
+            <Sidebar />
+          </aside>
+          <div id="current-page" className="ml-[200px] w-full pb-5">
+            <div
+              id="layout-wrapper"
+              className="container min-h-screen flex flex-col justify-between"
+            >
+              <div id="content-wrapper">
+                <div id="dashboard-top" className="h-[120px]">
+                  topp
+                </div>
+                {children}
+              </div>
+              <Footer />
+            </div>
+          </div>
+        </main>
+      </body>
     </html>
   );
 }
