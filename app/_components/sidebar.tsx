@@ -45,11 +45,12 @@ export default function Sidebar() {
             </Button>
           </Link>
         </div>
-
-        <Button className=" justify-start flex gap-[12px] rounded-xl px-4 py-3 text-white">
-          <LogOut width="20" height="20" />
-          Log out
-        </Button>
+        <Link href={"/login"}>
+          <Button className=" justify-start flex gap-[12px] rounded-xl px-4 py-3 bg-inherit text-white">
+            <LogOut width="20" height="20" />
+            Log out
+          </Button>
+        </Link>
       </div>
     </div>
   );
