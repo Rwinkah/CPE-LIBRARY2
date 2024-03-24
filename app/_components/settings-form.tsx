@@ -16,9 +16,20 @@ import {
 import { useState } from "react";
 import edit from "@/assets/images/EditIcon.png";
 import Image from "next/image";
+import { Edit2Icon } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import CourseContent from "../../data/course-info";
 
 const settingsSchema = z.object({
   email: z.string().email("invalid email"),
@@ -124,7 +135,7 @@ export function SettingsForm({ page }: settingsProp) {
                 </FormItem>
               )}
             />
-            <Button className="border-[1.5px] h-[46px] flex gap-2 rounded-3xl mt-8 w-[185px] border-[#820B8A] text-[#820B8A] ml-3">
+            <Button className="border-[1.5px] h-[46px] flex gap-2 rounded-3xl mt-8 w-[185px] outline-[#820B8A] text-white ml-3 border-white">
               <Image src={edit} alt="edit" />
               Edit information
             </Button>
@@ -275,81 +286,65 @@ export function SettingsForm({ page }: settingsProp) {
     );
   } else if (page === 3) {
     return (
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <h1 className="text-4xl font-bold">Create an account</h1>
-          <FormField
-            control={form.control}
-            name="firstSem"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>First semester</FormLabel>
-                <FormControl>
-                  {/* <Input className="rounded-3xl" placeholder="**********"  {...field} /> */}
-                  {/* <select className=" pl-4 w-[100%] h-[48px] focus:outline-none border-grey border rounded-3xl"  name="level" id="level">
-                                        <option value="100">100</option>
-                                        <option value="200">200</option>
-                                        <option value="300">300</option>
-                                        <option value="400">400</option>
-                                        <option value="500">500</option>
-                                        </select> */}
-                  <Button>Hi</Button>
-                </FormControl>
-                {firstS && (
-                  <div className="flex flex-wrap w-[100%] gap-1">
-                    {firstS.map((value, index) => (
-                      <Button
-                        key={index}
-                        className=" gap-2 rounded-none h-[30px] text-[14px] font-medium w-[7.45rem] flex space-evenly text-[#820B8A] [border px-1.5 py-1 bg-[#ECDBEE]"
-                      >
-                        {value}
-                      </Button>
-                    ))}
-                  </div>
-                )}
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="secSem"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Second semester</FormLabel>
-                <FormControl>
-                  {/* <Input className="rounded-3xl" placeholder="**********"  {...field} /> */}
-                  {/* <select className=" pl-4 w-[100%] h-[48px] focus:outline-none border-grey border rounded-3xl"  name="level" id="level">
-                                        <option value="100">100</option>
-                                        <option value="200">200</option>
-                                        <option value="300">300</option>
-                                        <option value="400">400</option>
-                                        <option value="500">500</option>
-                                        </select> */}
-                </FormControl>
-                {secondS && (
-                  <div className="flex flex-wrap w-[100%] gap-1">
-                    {secondS.map((value, index) => (
-                      <Button
-                        key={index}
-                        className="flex gap-2 rounded-none h-[30px] text-[14px] font-medium w-[7.45rem]  space-evenly text-[#820B8A] [border px-1.5 py-1 bg-[#ECDBEE]"
-                      >
-                        {value}
-                      </Button>
-                    ))}
-                  </div>
-                )}
-              </FormItem>
-            )}
-          />
+      <div>
+        <div className="py-8">
           <Button
-            className="rounded-3xl border w-[100%] bg-[#820B8A] text-white"
-            type="submit"
-            onClick={onProceed}
+            variant={"outline"}
+            className="rounded-[20px] text-primary border-primary flex flex-row gap-3"
           >
-            Finish
+            <Edit2Icon size={13} />
+            Edit Course List
           </Button>
-        </form>
-      </Form>
+        </div>
+        <div className="flex flex-row gap-11">
+          <div className="max-w-[355px]">
+            <h3 className="text-base font-medium mb-4">First Semester</h3>
+            <div>
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-[#820B8A12]">
+                    <TableHead className="text-primary">Code</TableHead>
+                    <TableHead className="text-primary">Title</TableHead>
+                    <TableHead className="text-primary">Credit</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody className="bg-[#F5F5F5]">
+                  {CourseContent.map((course) => (
+                    <TableRow>
+                      <TableCell>{course.code}</TableCell>
+                      <TableCell>{course.title}</TableCell>
+                      <TableCell>{course.credit_load}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </div>
+          <div className="max-w-[355px]">
+            <h3 className="text-base font-medium mb-4">Second Semester</h3>
+            <div>
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-[#820B8A12]">
+                    <TableHead className="text-primary">Code</TableHead>
+                    <TableHead className="text-primary">Title</TableHead>
+                    <TableHead className="text-primary">Credit</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody className="bg-[#F5F5F5]">
+                  {CourseContent.map((course) => (
+                    <TableRow>
+                      <TableCell>{course.code}</TableCell>
+                      <TableCell>{course.title}</TableCell>
+                      <TableCell>{course.credit_load}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

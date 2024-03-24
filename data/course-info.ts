@@ -2,6 +2,7 @@ interface Course {
   code: string;
   title: string;
   lecturer: string;
+  credit_load: number;
   textbooks: Resource[];
   slides: Resource[];
   class_notes: Resource[];
@@ -20,6 +21,7 @@ const courses: Course[] = [
     code: "CPE502",
     title: "Digital Signal Processing",
     lecturer: "Engr. Peter Peters",
+    credit_load: 3,
     textbooks: [
       {
         name: "Digital Signal Processing.",
@@ -123,6 +125,7 @@ const courses: Course[] = [
     code: "CPE504",
     title: "Digital Signal Processing",
     lecturer: "Engr. Peter Peters",
+    credit_load: 3,
     textbooks: [
       {
         name: "Digital Signal Processing.",
@@ -226,6 +229,7 @@ const courses: Course[] = [
     code: "CPE503",
     title: "Computer Networks",
     lecturer: "Engr. daniel Peters",
+    credit_load: 3,
     textbooks: [
       {
         name: "Digital Signal Processing.",
