@@ -6,6 +6,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { DownloadIcon } from "lucide-react";
+import Link from "next/link";
 
 interface CourseDetails {
   name: string;
@@ -21,20 +24,22 @@ export default function CourseContent({
   link,
 }: CourseDetails) {
   return (
-    <Card className="h-[182px] bg-secondary">
-      <CardHeader>
+    <Card className="bg-transparent border-none max-w-[143px] shadow-none">
+      <CardHeader className="p-0 max-w-[143px] ">
         <CardTitle className="text-primary text-2xl font-bold">
-          {name}
+          <img src={image} alt="" />
         </CardTitle>
-        <CardDescription className="font-medium"> {size}</CardDescription>
+        <CardDescription className="font-medium truncate">
+          {name}{" "}
+        </CardDescription>
       </CardHeader>
-      <CardContent>
-        <img src={image} alt="" />
-      </CardContent>
-      <CardFooter>
-        <p className="flex gap-1 text-[13px] font-light text-[#807E7E]">
-          {link}
-        </p>
+      <CardFooter className="flex flex-row  justify-between p-0 w-full">
+        <Button variant="link" size="sm" className="p-0" asChild>
+          <Link href={link} download>
+            <DownloadIcon />
+          </Link>
+        </Button>
+        {size}
       </CardFooter>
     </Card>
   );

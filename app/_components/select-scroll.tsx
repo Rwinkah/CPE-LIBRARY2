@@ -65,6 +65,8 @@ const data = [
     label: "First Semester",
     options: [
       { value: "CPE515", label: "CPE515" },
+      { value: "CPE502", label: "CPE502" },
+      { value: "CPE504", label: "CPE504" },
       { value: "CPE513", label: "CPE513" },
       { value: "CPE557", label: "CPE557" },
       { value: "CPE575", label: "CPE575" },
