@@ -30,6 +30,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import CourseContent from "../../data/course-info";
+import CourseSettings from "./course-settings";
 
 const settingsSchema = z.object({
   email: z.string().email("invalid email"),
@@ -44,7 +45,6 @@ const settingsSchema = z.object({
   chPassNew: z.string(),
   chPassConf: z.string(),
 });
-
 interface settingsProp {
   page: number;
 }
@@ -285,66 +285,6 @@ export function SettingsForm({ page }: settingsProp) {
       </Form>
     );
   } else if (page === 3) {
-    return (
-      <div>
-        <div className="py-8">
-          <Button
-            variant={"outline"}
-            className="rounded-[20px] text-primary border-primary flex flex-row gap-3"
-          >
-            <Edit2Icon size={13} />
-            Edit Course List
-          </Button>
-        </div>
-        <div className="flex flex-row gap-11">
-          <div className="max-w-[355px]">
-            <h3 className="text-base font-medium mb-4">First Semester</h3>
-            <div>
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-[#820B8A12]">
-                    <TableHead className="text-primary">Code</TableHead>
-                    <TableHead className="text-primary">Title</TableHead>
-                    <TableHead className="text-primary">Credit</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody className="bg-[#F5F5F5]">
-                  {CourseContent.map((course) => (
-                    <TableRow>
-                      <TableCell>{course.code}</TableCell>
-                      <TableCell>{course.title}</TableCell>
-                      <TableCell>{course.credit_load}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-          <div className="max-w-[355px]">
-            <h3 className="text-base font-medium mb-4">Second Semester</h3>
-            <div>
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-[#820B8A12]">
-                    <TableHead className="text-primary">Code</TableHead>
-                    <TableHead className="text-primary">Title</TableHead>
-                    <TableHead className="text-primary">Credit</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody className="bg-[#F5F5F5]">
-                  {CourseContent.map((course) => (
-                    <TableRow>
-                      <TableCell>{course.code}</TableCell>
-                      <TableCell>{course.title}</TableCell>
-                      <TableCell>{course.credit_load}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <CourseSettings></CourseSettings>;
   }
 }
