@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Sidebar from "./_components/sidebar";
 import Footer from "./_components/footer";
+import RespContainer from "./_components/resp_container";
 
 export const metadata: Metadata = {
   title: {
@@ -44,11 +45,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="flex">
-          <aside className="fixed top-0 bottom-0 w-[200px]">
+        <main className="flex box-border">
+          <aside className="fixed top-0 bottom-0 w-[200px] box-border">
             <Sidebar />
           </aside>
-          <div id="current-page" className="ml-[200px] w-full pb-5">
+          <RespContainer hide={false} id="current_page" class_full="ml-[200px] pb-5" class_sm="align-center pb-5">
             <div
               id="layout-wrapper"
               className="container min-h-screen flex flex-col justify-between"
@@ -61,7 +62,7 @@ export default function RootLayout({
               </div>
               <Footer />
             </div>
-          </div>
+          </RespContainer>
         </main>
       </body>
     </html>
