@@ -27,7 +27,7 @@ export default function CourseContent({
     <Card className="bg-transparent border-none max-w-[143px] shadow-none">
       <CardHeader className="p-0 max-w-[143px] ">
         <CardTitle className="text-primary text-2xl font-bold">
-          <img src={image} alt="" />
+          <img src={image} alt="book image" />
         </CardTitle>
         <CardDescription className="font-medium truncate">
           {name}{" "}
