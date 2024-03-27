@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Dashboard() {
   return (
-    <>
+    <div className="flex-col flex-shrink">
       <h1 className="font-bold text-4xl mb-6">Overview</h1>
       <Tabs defaultValue="courses" className="w-full">
         <TabsList>
@@ -22,7 +22,7 @@ export default function Dashboard() {
           <TabsTrigger value="my_notes"> My notes</TabsTrigger>
         </TabsList>
         <TabsContent value="courses">
-          <div className="grid grid-cols-1 sm:grids-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  pt-4 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-4">
             {CourseData.map((item) => (
               <CourseCard
                 key={item.title}
@@ -41,6 +41,6 @@ export default function Dashboard() {
           <TabNote />
         </TabsContent>
       </Tabs>
-    </>
+    </div>
   );
 }

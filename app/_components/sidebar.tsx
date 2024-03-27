@@ -1,19 +1,58 @@
 "use client";
 import Image from "next/image";
-import { GearIcon, HomeIcon } from "@radix-ui/react-icons";
+import { GearIcon, HomeIcon, BookmarkIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import book from "@/assets/images/bookIcon.png";
 import { usePathname } from "next/navigation";
 import { LogOut } from "lucide-react";
 import { SelectScrollable } from "./select-scroll";
+import UseMediaQuery from "@/lib/use-media-query";
+
+
 
 export default function Sidebar() {
   const pathname = usePathname();
   const isHomeActive = pathname.includes("/home");
   const isSettingsActive = pathname.includes("/settings");
+  const isTabletAbove = UseMediaQuery("(min-width: 1025px)");
+
+  const NavBar = [
+    {
+      icon: HomeIcon,
+      id: 'home',
+      link: '/home'
+    },
+    {
+      icon: GearIcon,
+      id: 'settings',
+      link: '/settings'
+    }
+  ]
+ 
 
   return (
+
+    <>
+      {!isTabletAbove ? (
+        <aside className="shadow  h-fit fixed z-500 bottom-0 left-0 right-0">
+          <div className="bg-[#FFF] w-full flex justify-around items-center">
+            <Link href={"/home"}>
+             <div className="flex items-center justify-start p-2 cursor-pointer">
+             <HomeIcon width={40} height={40}/> 
+            </div>
+            </Link>
+
+            <Link href={"/settings"}>
+              <div className="flex items-center justify-start p-2 cursor-pointer">
+              <GearIcon width={40} height={40}/> 
+            </div>
+            </Link>
+
+
+            </div>
+        </aside>
+      ):
     <div className="w-[200px] min-h-screen h-full bg-black">
       <div id="logo" className="flex p-5 pt-6 ">
         <Image className="" src={book} alt="logo" />
@@ -52,6 +91,9 @@ export default function Sidebar() {
           </Button>
         </Link>
       </div>
-    </div>
+    </div>}
+    </>
+    
+
   );
 }
