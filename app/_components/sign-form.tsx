@@ -1,7 +1,7 @@
 "use client";
 
 import { z } from "zod";
-import { FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -13,11 +13,9 @@ import { SelectCourse } from "./select-course";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
 
 import { Input } from "@/components/ui/input";
@@ -64,7 +62,9 @@ export function SignupForm() {
   const [firstS, setFirstS] = useState<string[]>([]);
   const [secondS, setSecondS] = useState<string[]>([]);
 
-  function onSubmit(values: z.infer<typeof signupSchema>) {}
+  function onSubmit(values: z.infer<typeof signupSchema>) {
+    console.log(values);
+  }
 
   const handleRemove = (
     index: number,
@@ -75,15 +75,16 @@ export function SignupForm() {
     setCourse(newCourse);
   };
   function onProceed(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    if (step === 1) {
-      setStep(2);
-    } else if (step === 2) {
-      setStep(3);
-    } else {
-      setStep(1);
+    switch (step) {
+      case 1:
+        setStep(2);
+        break;
+      case 2:
+        setStep(3);
+        break;
+      default:
+        break;
     }
-
-    console.log(step);
   }
 
   const [step, setStep] = useState(1);
@@ -95,7 +96,7 @@ export function SignupForm() {
       firstName: "",
       lastName: "",
       matNo: "",
-      level: 100,
+      level: 500,
     },
   });
 

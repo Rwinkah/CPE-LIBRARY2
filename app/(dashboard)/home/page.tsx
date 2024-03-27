@@ -1,10 +1,9 @@
 import { Metadata } from "next";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import TabLib from "../_components/tablib";
-import TabNote from "../_components/tabnote";
 import CourseData from "@/data/coursedata";
-import CourseCard from "../_components/course-card";
-import { SelectScrollable } from "../_components/select-scroll";
+import CourseCard from "@/app/_components/course-card";
+import TabLib from "@/app/_components/tablib";
+import TabNote from "@/app/_components/tabnote";
 
 export const metadata: Metadata = {
   title: "Home",

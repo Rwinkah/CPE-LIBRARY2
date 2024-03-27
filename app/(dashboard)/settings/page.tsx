@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { SettingsForm } from "../_components/settings-form";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { SettingsForm } from "@/app/_components/settings-form";
 
 export const metadata: Metadata = {
   title: "Settings",

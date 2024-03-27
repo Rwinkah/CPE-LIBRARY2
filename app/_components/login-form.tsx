@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/form";
 
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 const loginSchema = z.object({
   email: z.string().email("invalid email"),
@@ -69,23 +70,26 @@ export function LoginForm() {
                 />
               </FormControl>
               <a
-                className="text-primary self-end text-[#820B8A] font-medium text-sm"
+                className=" self-end text-primary font-medium text-sm"
                 href="/reset-password"
               >
                 Forgot password?
               </a>
               <h3 className="text-center">
                 Don&apos;t have an account?{" "}
-                <a className="text-[#820B8A] font-medium underline" href="/">
+                <Link
+                  className="text-primary font-medium underline"
+                  href="/signup"
+                >
                   Sign up
-                </a>
+                </Link>
               </h3>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button
-          className="border w-[100%] rounded-3xl text-white bg-[#820B8A]"
+          className="border w-[100%] rounded-3xl text-white bg-primary"
           type="submit"
         >
           Submit
