@@ -238,20 +238,20 @@ export function SignupForm() {
             name="level"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Level</FormLabel>
+                {/* <FormLabel>Level</FormLabel> */}
                 <FormControl>
                   {/* <Input className="rounded-3xl" placeholder="**********"  {...field} /> */}
-                  <select
+                  {/* <select
                     className=" pl-4 w-[100%] h-[48px] focus:outline-none border-grey border rounded-3xl"
-                    name="firstSem"
-                    id="firstSem placeholder='select courses'"
+                    name="level"
+                    id="level placeholder='select level'"
                   >
                     <option value="100">100</option>
                     <option value="200">200</option>
                     <option value="300">300</option>
                     <option value="400">400</option>
                     <option value="500">500</option>
-                  </select>
+                  </select> */}
                 </FormControl>
               </FormItem>
             )}
