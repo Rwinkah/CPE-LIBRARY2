@@ -41,13 +41,17 @@ export default function Page({ params }: { params: { course: string } }) {
         <TabsContent value="Classnotes">
           <div className="grid grid-cols-1 sm:grids-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  pt-4 w-fit">
             {courseName.class_notes.map((item) => (
-              <CourseContent
-                key={item.name}
-                name={item.name}
-                image={item.image}
-                size={item.size}
-                link={item.link}
-              />
+              <div>
+                {!item && <h3>Hello</h3>}
+                <CourseContent
+                  key={item.name}
+                  name={item.name}
+                  image={item.image}
+                  size={item.size}
+                  link={item.link}
+                />
+              </div>
+
             ))}
           </div>
         </TabsContent>
