@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Sidebar />
       </RespContainer>
 
-      <RespContainer id="current-page" hide={false} class_full="ml-[200px] w-full pb-5" class_sm="w-full pb-5">
+      <RespContainer id="current-page" hide={false} class_full="ml-[200px] w-full pb-5" class_sm="w-full pb-5 mb-20">
         <div
           id="layout-wrapper"
           className="container flex flex-col justify-between"

@@ -21,7 +21,10 @@ export default function Page({ params }: { params: { course: string } }) {
   return (
     <div>
       <h1 className="font-bold text-4xl mb-2">
-        {currentCourse}:{courseName.title}
+        {currentCourse}:
+      </h1>
+      < h1 className="font-semibold text-2xl mb-8">
+      {courseName.title}
       </h1>
       <h2 className="font-normal text-sm mb-9">
         2024 Lecturer: <span className="font-bold">{courseName.lecturer}</span>
@@ -34,7 +37,7 @@ export default function Page({ params }: { params: { course: string } }) {
           <TabsTrigger value="Past Questions">Past Questions</TabsTrigger>
         </TabsList>
         <TabsContent value="Textbooks">
-          <div className="grid grid-cols-1 sm:grids-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  pt-4 w-fit">
+          <div className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 ">
             {courseName.textbooks.map((item) => (
               <CourseContent
                 key={item.name}
@@ -47,7 +50,7 @@ export default function Page({ params }: { params: { course: string } }) {
           </div>
         </TabsContent>
         <TabsContent value="Classnotes">
-          <div className="grid grid-cols-1 sm:grids-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  pt-4 w-fit">
+        <div className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 ">
             {courseName.class_notes.map((item) => (
 
                 <CourseContent
@@ -63,7 +66,7 @@ export default function Page({ params }: { params: { course: string } }) {
           </div>
         </TabsContent>
         <TabsContent value="Slides">
-          <div className="grid grid-cols-1 sm:grids-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  pt-4 w-fit">
+        <div className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 ">
             {courseName.slides.map((item) => (
               <CourseContent
                 key={item.name}
@@ -76,7 +79,7 @@ export default function Page({ params }: { params: { course: string } }) {
           </div>
         </TabsContent>
         <TabsContent value="Past Questions">
-          <div className="grid grid-cols-1 sm:grids-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  pt-4 w-fit">
+        <div className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 ">
             {courseName.past_questions.map((item) => (
               <CourseContent
                 key={item.name}
