@@ -1,5 +1,8 @@
+"use client"
+
 import React, { useState } from "react";
 import CourseContent from "../../data/course-info";
+import RespContainer from "./resp_container";
 import { Edit2Icon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,7 +16,7 @@ import {
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { Check } from "lucide-react";
 
-const CourseSettings = () => {
+export default function CourseSettings () {
   const [isEditing, setIsEditing] = useState(false);
   const [courses, setCourses] = useState(CourseContent);
 
@@ -26,7 +29,7 @@ const CourseSettings = () => {
   };
 
   return (
-    <div>
+    <RespContainer hide={false} class_full="" class_sm="h-[75vh] overflow-y-scroll">
       <div className="py-8">
         {!isEditing && (
           <Button
@@ -39,8 +42,8 @@ const CourseSettings = () => {
           </Button>
         )}
       </div>
-      <div className="flex flex-row gap-11">
-        <div className="max-w-[355px]">
+      <RespContainer class_full="flex  gap-11" hide={false} class_sm=" flex flex-col gap-20 mb-10">
+        <div className="max-w-[355px] ">
           <h3 className="text-base font-medium mb-4">First Semester</h3>
           <div>
             <Table>
@@ -108,7 +111,7 @@ const CourseSettings = () => {
             </Table>
           </div>
         </div>
-      </div>
+      </RespContainer>
       {isEditing && (
         <div className="py-8">
           <Button
@@ -121,8 +124,6 @@ const CourseSettings = () => {
           </Button>
         </div>
       )}
-    </div>
+    </RespContainer>
   );
 };
-
-export default CourseSettings;

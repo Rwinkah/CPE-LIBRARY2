@@ -1,10 +1,13 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import RespContainer from "./resp_container";
 import Image from "next/image";
 import sadFace from '@/assets/images/sad_face.svg'
+import UseMediaQuery from "@/lib/use-media-query";
 
 export default function TabNote() {
+  const isTabletAbove = UseMediaQuery("(min-width: 1025px)");
   return (
     <div>
       {/* <div className="flex">
@@ -21,9 +24,11 @@ export default function TabNote() {
           Type new note
         </Button>
       </div> */}
-      <RespContainer hide={false} class_full='flex text-xl gap-3 mt-1' class_sm="text-3xl gap-10">
-        <h1 >Sorry, this feature is currently unavialable </h1>
-        <Image src={sadFace} alt="sadface" width={24} height={24}/>
+      <RespContainer hide={false} class_full='flex text-6xl gap-3 mt-[30vh]' class_sm=" flex flex-col text-3xl gap-10 items-center">
+        <h1 className={`${isTabletAbove ? '': 'w text-center mt-[25vh]'} `}>Sorry, this feature is currently unavialable </h1>
+
+         <Image src={sadFace} alt="sadface" width={isTabletAbove ? 80: 100} height={isTabletAbove ? 80: 100}/>
+
       </RespContainer>
     </div>
   );
