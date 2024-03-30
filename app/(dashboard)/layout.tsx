@@ -3,6 +3,7 @@ import Footer from "../_components/footer";
 import RespContainer from "../_components/resp_container";
 import Sidebar from "../_components/sidebar";
 import { BookIcon, BookXIcon } from "lucide-react";
+import Header from "../_components/header";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -16,7 +17,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           id="layout-wrapper"
           className="container flex flex-col justify-between"
         >
-          <div id="content-wrapper" className="mt-5">
+          <div id="content-wrapper" className="mt-5 min-h-[100vh]">
+              <Header/>
+
             {children}
           </div>
           <Footer />
