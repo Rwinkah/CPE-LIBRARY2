@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/table";
 import CourseContent from "../../data/course-info";
 import CourseSettings from "./course-settings";
+import RespContainer from "./resp_container";
 
 const settingsSchema = z.object({
   email: z.string().email("invalid email"),
@@ -115,7 +116,12 @@ export function SettingsForm({ page }: settingsProp) {
     return (
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <div className="flex mt-[20px]">
+          <RespContainer hide={false}>
+            <Button className="border-[1.5px] h-[46px] flex gap-2 rounded-3xl mt-8 w-[185px] outline-[#820B8A] text-primary border-primary bg-white">
+              <Image src={edit} alt="edit" />
+              Edit information
+            </Button>
+          <div className="flex flex-wrap mt-[20px]">
             <FormField
               control={form.control}
               name="email"
@@ -127,7 +133,7 @@ export function SettingsForm({ page }: settingsProp) {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="bg-[#F2F2F2] h-[46px] w-[451px] border-[1.5px] focus:outline-none rounded-3xl"
+                      className="bg-[#F2F2F2] h-[46px] border-[1.5px] focus:outline-none rounded-3xl"
                       placeholder="student-lastname@eng.uniben.edu"
                       {...field}
                     />
@@ -135,17 +141,14 @@ export function SettingsForm({ page }: settingsProp) {
                 </FormItem>
               )}
             />
-            <Button className="border-[1.5px] h-[46px] flex gap-2 rounded-3xl mt-8 w-[185px] outline-[#820B8A] text-white ml-3 border-white">
-              <Image src={edit} alt="edit" />
-              Edit information
-            </Button>
+
           </div>
-          <div className="flex mt-[20px]">
+          <RespContainer class_full="flex mt-[20px] flex-wrap" class_sm="flex-col flex-wrap" hide={false}>
             <FormField
               control={form.control}
               name="firstName"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="mr-[12px]">
                   <FormLabel className="text-sm"> First name</FormLabel>
                   <FormControl>
                     <Input
@@ -161,7 +164,7 @@ export function SettingsForm({ page }: settingsProp) {
               control={form.control}
               name="lastName"
               render={({ field }) => (
-                <FormItem className="ml-[12px]">
+                <FormItem className="">
                   <FormLabel className="text-sm"> Last name</FormLabel>
                   <FormControl>
                     <Input
@@ -173,13 +176,13 @@ export function SettingsForm({ page }: settingsProp) {
                 </FormItem>
               )}
             />
-          </div>
-          <div className="flex mt-[20px]">
+          </RespContainer>
+          <RespContainer class_full="flex mt-[20px] flex-wrap" class_sm="flex-col flex-wrap" hide={false}>
             <FormField
               control={form.control}
               name="matNo"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="mr-[12px]">
                   <FormLabel className="text-sm"> Matric number</FormLabel>
                   <FormControl>
                     <Input
@@ -195,7 +198,7 @@ export function SettingsForm({ page }: settingsProp) {
               control={form.control}
               name="level"
               render={({ field }) => (
-                <FormItem className="ml-[12px]">
+                <FormItem className="">
                   <FormLabel className="text-sm"> Level</FormLabel>
                   <FormControl>
                     {/* <select className=" pl-4 w-[318px] h-[48px] focus:outline-none border-grey border rounded-3xl"  name="level">
@@ -214,7 +217,8 @@ export function SettingsForm({ page }: settingsProp) {
                 </FormItem>
               )}
             />
-          </div>
+          </RespContainer>
+          </RespContainer>
         </form>
       </Form>
     );
@@ -223,10 +227,10 @@ export function SettingsForm({ page }: settingsProp) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="s justify-between space-y-4 w-[89%] ">
-            <h3 className="text-xl font-bold mt-[20px] mb-2">
+            <h3 className="text-xl font-bold mt-[40px] mb-2">
               Change password
             </h3>
-            <span className="text-base font-normal text-[#515151] mt-2 mb-6">
+            <span className="text-base font-normal text-[#515151] mt-2 mb-10">
               You will be logged out of all sessions to protect your account
             </span>
             <FormField

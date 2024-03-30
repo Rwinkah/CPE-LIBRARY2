@@ -35,7 +35,7 @@ export default function Sidebar() {
 
     <>
       {!isTabletAbove ? (
-        <aside className="shadow  h-fit fixed z-500 bottom-0 left-0 right-0">
+        <div className="shadow  h-fit fixed z-500 bottom-0 left-0 right-0">
           <div className="bg-[#FFF] w-full flex justify-around items-center">
             <Link href={"/home"}>
              <div className="flex items-center justify-start p-2 cursor-pointer">
@@ -51,9 +51,9 @@ export default function Sidebar() {
 
 
             </div>
-        </aside>
+        </div>
       ):
-    <div className="w-[200px] min-h-screen h-full bg-black">
+    <div className=" min-h-screen h-full bg-black">
       <div id="logo" className="flex p-5 pt-6 ">
         <Image className="" src={book} alt="logo" />
         <h6 className=" mt-2 ml-[4px] font-light text-white">

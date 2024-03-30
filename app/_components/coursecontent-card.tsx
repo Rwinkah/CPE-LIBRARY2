@@ -23,9 +23,13 @@ export default function CourseContent({
   size,
   link,
 }: CourseDetails) {
+  if (!name) {
+    return <h3>Sorry, unavailable</h3>;
+  }
+
   return (
     <Card className="bg-transparent border-none max-w-[143px] shadow-none">
-      <CardHeader className="p-0 max-w-[143px] ">
+      <CardHeader className="p-0 max-w-[143px]">
         <CardTitle className="text-primary text-2xl font-bold">
           <img src={image} alt="book image" />
         </CardTitle>
@@ -33,7 +37,7 @@ export default function CourseContent({
           {name}{" "}
         </CardDescription>
       </CardHeader>
-      <CardFooter className="flex flex-row  justify-between p-0 w-full">
+      <CardFooter className="flex flex-row justify-between p-0 w-full">
         <Button variant="link" size="sm" className="p-0" asChild>
           <Link href={link} download>
             <DownloadIcon />

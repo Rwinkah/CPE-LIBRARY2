@@ -18,8 +18,7 @@ export default function Dashboard() {
       <Tabs defaultValue="courses" className="w-full">
         <TabsList>
           <TabsTrigger value="courses">Courses</TabsTrigger>
-          <TabsTrigger value="my_library">My Library</TabsTrigger>
-          <TabsTrigger value="my_notes"> My notes</TabsTrigger>
+        <TabsTrigger value="my_notes"> My notes</TabsTrigger>
         </TabsList>
         <TabsContent value="courses">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-4">
@@ -34,11 +33,8 @@ export default function Dashboard() {
             ))}
           </div>
         </TabsContent>
-        <TabsContent value="my_library">
-          <TabLib />
-        </TabsContent>
         <TabsContent value="my_notes">
-          <TabNote />
+       <TabNote />
         </TabsContent>
       </Tabs>
     </div>
