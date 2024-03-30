@@ -116,7 +116,7 @@ export function SettingsForm({ page }: settingsProp) {
     return (
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <RespContainer>
+          <RespContainer hide={false}>
             <Button className="border-[1.5px] h-[46px] flex gap-2 rounded-3xl mt-8 w-[185px] outline-[#820B8A] text-primary border-primary bg-white">
               <Image src={edit} alt="edit" />
               Edit information
@@ -148,7 +148,7 @@ export function SettingsForm({ page }: settingsProp) {
               control={form.control}
               name="firstName"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="mr-[12px]">
                   <FormLabel className="text-sm"> First name</FormLabel>
                   <FormControl>
                     <Input
@@ -164,7 +164,7 @@ export function SettingsForm({ page }: settingsProp) {
               control={form.control}
               name="lastName"
               render={({ field }) => (
-                <FormItem className="ml-[12px]">
+                <FormItem className="">
                   <FormLabel className="text-sm"> Last name</FormLabel>
                   <FormControl>
                     <Input
@@ -182,7 +182,7 @@ export function SettingsForm({ page }: settingsProp) {
               control={form.control}
               name="matNo"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="mr-[12px]">
                   <FormLabel className="text-sm"> Matric number</FormLabel>
                   <FormControl>
                     <Input
@@ -198,7 +198,7 @@ export function SettingsForm({ page }: settingsProp) {
               control={form.control}
               name="level"
               render={({ field }) => (
-                <FormItem className="ml-[12px]">
+                <FormItem className="">
                   <FormLabel className="text-sm"> Level</FormLabel>
                   <FormControl>
                     {/* <select className=" pl-4 w-[318px] h-[48px] focus:outline-none border-grey border rounded-3xl"  name="level">
@@ -227,10 +227,10 @@ export function SettingsForm({ page }: settingsProp) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="s justify-between space-y-4 w-[89%] ">
-            <h3 className="text-xl font-bold mt-[20px] mb-2">
+            <h3 className="text-xl font-bold mt-[40px] mb-2">
               Change password
             </h3>
-            <span className="text-base font-normal text-[#515151] mt-2 mb-6">
+            <span className="text-base font-normal text-[#515151] mt-2 mb-10">
               You will be logged out of all sessions to protect your account
             </span>
             <FormField
