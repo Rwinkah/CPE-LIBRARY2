@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CourseData from "@/data/coursedata";
+import CourseData from "@/data/course-info";
 import CourseCard from "@/app/_components/course-card";
 import TabLib from "@/app/_components/tablib";
 import TabNote from "@/app/_components/tabnote";
@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   openGraph: { title: "Home" },
   twitter: { title: "Home" },
 };
+
+function generateRandomNumberAsString() {
+  const randomNumber = Math.floor(Math.random() * 100);
+  return randomNumber.toString(); // Convert the number to a string
+}
+
 
 export default function Dashboard() {
   return (
@@ -25,10 +31,10 @@ export default function Dashboard() {
             {CourseData.map((item) => (
               <CourseCard
                 key={item.title}
-                title={item.title}
-                desc={item.desc}
-                hours={item.hours}
-                docs={item.materials}
+                title={item.code}
+                desc={item.title}
+                hours={generateRandomNumberAsString()}
+                docs={generateRandomNumberAsString()}
               />
             ))}
           </div>

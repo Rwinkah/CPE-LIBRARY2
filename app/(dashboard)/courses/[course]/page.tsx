@@ -1,6 +1,14 @@
 import CourseContent from "@/app/_components/coursecontent-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Courses from "@/data/course-info";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Courses",
+  openGraph: { title: "Courses" },
+  twitter: { title: "Courses" },
+};
+
 
 export default function Page({ params }: { params: { course: string } }) {
   let currentCourse = params.course;

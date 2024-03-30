@@ -35,7 +35,7 @@ export default function Sidebar() {
 
     <>
       {!isTabletAbove ? (
-        <div className="shadow  h-fit fixed z-500 bottom-0 left-0 right-0">
+        <div className="shadow  h-fit fixed z-500 bottom-0 left-0 right-0 mt-[3rem]">
           <div className="bg-[#FFF] w-full flex justify-around items-center">
             <Link href={"/home"}>
              <div className="flex items-center justify-start p-2 cursor-pointer">
