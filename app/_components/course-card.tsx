@@ -30,10 +30,7 @@ export default function CourseCard({ title, desc, hours, docs }: courseProps) {
           <CardDescription className="font-medium"> {desc}</CardDescription>
         </CardHeader>
         <CardContent>
-          <p className=" flex gap-1 text-[13px] font-light text-[#807E7E]">
-            <Image src={play} alt="play" className="h-[18px] w-[18px]" />
-            {hours ? `${hours} of videos` : "No videos available"}
-          </p>
+
         </CardContent>
         <CardFooter>
           <p className="flex gap-1 text-[13px] font-light text-[#807E7E]">

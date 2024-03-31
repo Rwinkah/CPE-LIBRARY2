@@ -15,8 +15,9 @@ import {
 } from "@/components/ui/form";
 import { useState } from "react";
 import edit from "@/assets/images/EditIcon.png";
+import save from '@/assets/images/save-solid.svg'
 import Image from "next/image";
-import { Edit2Icon } from "lucide-react";
+import { Edit, Edit2Icon, Save } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -77,6 +78,7 @@ export function SettingsForm({ page }: settingsProp) {
   const [isChecked, setIsChecked] = useState(false);
   const [firstS, setFirstS] = useState<string[]>([]);
   const [secondS, setSecondS] = useState<string[]>([]);
+  const [isEdit, setIsEdit] = useState(false);
 
   function onSubmit(values: z.infer<typeof settingsSchema>) {}
 
@@ -117,9 +119,15 @@ export function SettingsForm({ page }: settingsProp) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <RespContainer hide={false}>
-            <Button className="border-[1.5px] h-[46px] flex gap-2 rounded-3xl mt-8 w-[185px] outline-[#820B8A] text-primary border-primary bg-white">
-              <Image src={edit} alt="edit" />
-              Edit information
+            <Button
+              className="border-[1.5px] h-[46px] flex gap-2 rounded-3xl mt-8 w-[185px] outline-[#820B8A] text-primary border-primary bg-white"
+              onClick={()=>setIsEdit(!isEdit)}
+              >
+              
+               {isEdit &&   <Image src= {edit} alt="edit" width={16} height={16}/>}    
+               {isEdit ?  'Edit information' : 'Save information'}
+               {!isEdit &&   <Image src= {save} alt="save" width={16} height={16}/>}
+
             </Button>
           <div className="flex flex-wrap mt-[20px]">
             <FormField
@@ -133,6 +141,7 @@ export function SettingsForm({ page }: settingsProp) {
                   </FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isEdit}
                       className="bg-[#F2F2F2] h-[46px] border-[1.5px] focus:outline-none rounded-3xl"
                       placeholder="student-lastname@eng.uniben.edu"
                       {...field}
@@ -152,6 +161,7 @@ export function SettingsForm({ page }: settingsProp) {
                   <FormLabel className="text-sm"> First name</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isEdit}
                       className="h-[46px] w-[318px] border-[1.5px] focus:outline-none rounded-3xl"
                       placeholder="Osato"
                       {...field}
@@ -168,8 +178,9 @@ export function SettingsForm({ page }: settingsProp) {
                   <FormLabel className="text-sm"> Last name</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isEdit}
                       className=" border-[1.5px] h-[46px] w-[318px] focus:outline-none rounded-3xl "
-                      placeholder="Osato"
+                      placeholder="Omorodion"
                       {...field}
                     />
                   </FormControl>
@@ -186,31 +197,9 @@ export function SettingsForm({ page }: settingsProp) {
                   <FormLabel className="text-sm"> Matric number</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isEdit}
                       className=" border-[1.5px] h-[46px] w-[318px] focus:outline-none rounded-3xl"
                       placeholder="Osato"
-                      {...field}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="level"
-              render={({ field }) => (
-                <FormItem className="">
-                  <FormLabel className="text-sm"> Level</FormLabel>
-                  <FormControl>
-                    {/* <select className=" pl-4 w-[318px] h-[48px] focus:outline-none border-grey border rounded-3xl"  name="level">
-                                            <option value="100">100</option>
-                                            <option value="200">200</option>
-                                            <option value="300">300</option>
-                                            <option value="400">400</option>
-                                            <option value="500">500</option>
-                                        </select> */}
-                    <Input
-                      className=" border-[1.5px] h-[46px] w-[318px] focus:outline-none rounded-3xl "
-                      placeholder="level"
                       {...field}
                     />
                   </FormControl>

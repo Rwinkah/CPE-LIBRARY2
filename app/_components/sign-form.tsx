@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import loading from '@/assets/images/LOADING.png';
 import Image from "next/image";
 import close from "@/assets/images/close_button.png";
 import arrow from "@/assets/images/leftArrow.png";
@@ -82,6 +83,8 @@ export function SignupForm() {
       case 2:
         setStep(3);
         break;
+      case 3:
+        setStep(4)
       default:
         break;
     }
@@ -374,5 +377,17 @@ export function SignupForm() {
         </form>
       </Form>
     );
+  } else if (step === 4) {
+    setTimeout(() => {
+      window.location.href = '/home'
+    }, 5000)
+    console.log('loading/.==.')
+
+    return (
+      <div className="w-full justify-center items-center flex flex-col">
+        <Image src={loading} alt="loading" className="animate-spin"/>
+        <p className="text-center w-[15rem] font-medium text-base ">Please hold on while we create your CPE E-Library account</p>
+      </div>
+    )
   }
 }

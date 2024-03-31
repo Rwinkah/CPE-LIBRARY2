@@ -33,7 +33,6 @@ export default function Dashboard() {
                 key={item.title}
                 title={item.code}
                 desc={item.title}
-                hours={generateRandomNumberAsString()}
                 docs={generateRandomNumberAsString()}
               />
             ))}

@@ -36,7 +36,7 @@ export function SelectScrollable() {
           isCourseActive ? "bg-primary" : "bg-transparent"
         } text-white border-none`}
       >
-        <SelectValue placeholder="Course" />
+        {isCourseActive? <SelectValue placeholder="Course" /> : 'Course' }
       </SelectTrigger>
       <SelectContent>
         {data.map((semester) => (
