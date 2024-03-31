@@ -7,22 +7,21 @@ import Header from "../_components/header";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="flex gap-0">
+    <main className="flex gap-0 min-h-[100vh]">
       <RespContainer class_full="fixed top-0 bottom-0" hide={false} >
         <Sidebar />
       </RespContainer>
-
-      <RespContainer id="current-page" hide={false} class_full="ml-[200px] w-full pb-5" class_sm="w-full pb-5 mb-20">
+ 
+      <RespContainer id="current-page" hide={false} class_full="flex flex-col ml-[200px] w-full justify-between h-[100%]" class_sm="w-full pb-5 mb-20">
         <div
           id="layout-wrapper"
-          className="container flex flex-col justify-between"
+          className="container flex flex-col justify-between ml-0"
         >
-          <div id="content-wrapper" className="mt-5 min-h-[100vh]">
+          <div id="content-wrapper" className="mt-5 flex flex-col">
               <Header/>
-
             {children}
           </div>
-          <Footer />
+          <Footer/>
         </div>
       </RespContainer>
     </main>

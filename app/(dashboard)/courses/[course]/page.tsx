@@ -19,7 +19,7 @@ export default function Page({ params }: { params: { course: string } }) {
   }
 
   return (
-    <div>
+    <div className="min-h-[91vh]">
       <h1 className="font-bold text-4xl mb-2">
         {currentCourse}:
       </h1>

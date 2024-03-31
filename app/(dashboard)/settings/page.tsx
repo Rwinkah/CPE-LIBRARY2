@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export default function page() {
   return (
     <>
-      <h1 className="font-bold text-4xl mb-6">Account settings</h1>
-      <Tabs defaultValue="profile" className="w-full">
+      <h1 className="font-bold text-4xl mb-0s">Account settings</h1>
+      <Tabs defaultValue="profile" className="w-full min-h-[87vh]">
         <TabsList>
           <TabsTrigger value="profile">Profile</TabsTrigger>
           <TabsTrigger value="password">Password</TabsTrigger>
